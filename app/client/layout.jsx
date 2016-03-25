@@ -12,7 +12,6 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 
 import Theme from './theme';
 import getMuiTheme from 'material-ui/lib/styles/getMuiTheme';
-import ThemeDecorator from 'material-ui/lib/styles/theme-decorator';
 
 import IconButton from 'material-ui/lib/icon-button';
 import NavigationClose from 'material-ui/lib/svg-icons/navigation/close';
@@ -23,6 +22,9 @@ import MenuIcon from 'material-ui/lib/svg-icons/navigation/menu';
 
 import MenuItem from 'material-ui/lib/menus/menu-item';
 import LeftNav from 'material-ui/lib/left-nav';
+
+import FloatingActionButton from 'material-ui/lib/floating-action-button';
+import ContentAdd from 'material-ui/lib/svg-icons/content/add';
 
 injectTapEventPlugin()
 
@@ -87,6 +89,11 @@ class Layout extends React.Component {
             }
           />
           <div>{content}</div>
+
+        <FloatingActionButton style={{position: 'fixed', right: 30, bottom: 30}}>
+          <ContentAdd />
+        </FloatingActionButton>
+
       </AppCanvas>
     )
   }
