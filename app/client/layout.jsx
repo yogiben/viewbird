@@ -14,8 +14,25 @@ import Theme from './theme';
 import getMuiTheme from 'material-ui/lib/styles/getMuiTheme';
 import ThemeDecorator from 'material-ui/lib/styles/theme-decorator';
 
+import IconButton from 'material-ui/lib/icon-button';
+import NavigationClose from 'material-ui/lib/svg-icons/navigation/close';
+import IconMenu from 'material-ui/lib/menus/icon-menu';
+
+import MoreVertIcon from 'material-ui/lib/svg-icons/navigation/more-vert';
+import MenuIcon from 'material-ui/lib/svg-icons/navigation/menu';
+
+import MenuItem from 'material-ui/lib/menus/menu-item';
+import LeftNav from 'material-ui/lib/left-nav';
+
+injectTapEventPlugin()
 
 class Layout extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {open: false};
+  }
+
   childContextTypes() {
     muiTheme: React.PropTypes.object
   }
@@ -26,12 +43,49 @@ class Layout extends React.Component {
     };
   }
 
+  handleToggleLeftNav() {
+    this.setState({open: !this.state.open})
+  }
+
+  handleCloseLeftNav() {
+    this.setState({open: false})
+  }
+
   render() {
-    injectTapEventPlugin()
     const {content} = this.props;
     return (
       <AppCanvas>
-          <AppBar title="izziLab"/>
+          <LeftNav
+            docked={false}
+            width={200}
+            open={this.state.open}
+            onRequestChange={open => this.setState({open})}
+          >
+            <MenuItem onTouchTap={this.handleCloseLeftNav.bind(this)}>Menu Item</MenuItem>
+            <MenuItem onTouchTap={this.handleCloseLeftNav.bind(this)}>Menu Item 2</MenuItem>
+          </LeftNav>
+
+          <AppBar
+            title="izziLab"
+            iconElementLeft={
+              <IconButton onTouchTap={this.handleToggleLeftNav.bind(this)}>
+                  <MenuIcon />
+              </IconButton>
+            }
+            iconElementRight={
+              <IconMenu
+                iconButtonElement={
+                  <IconButton><MoreVertIcon /></IconButton>
+                }
+                targetOrigin={{horizontal: 'right', vertical: 'top'}}
+                anchorOrigin={{horizontal: 'right', vertical: 'top'}}
+              >
+                <MenuItem primaryText="Refresh" />
+                <MenuItem primaryText="Help" />
+                <MenuItem primaryText="Sign out" />
+              </IconMenu>
+            }
+          />
           <div>{content}</div>
       </AppCanvas>
     )
