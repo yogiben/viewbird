@@ -1,23 +1,9 @@
 import React from 'react';
 
-import {
-  AppCanvas,
-  AppBar,
-  Styles,
-  RaisedButton,
-  DatePicker
-} from 'material-ui';
-
-export default Home = ({name}) => (
+export default Home = () => (
     <div>
-      <div style={{padding: '80px',}}>
-          <RaisedButton primary={true} label="Tap"/>
-          <br/>
-          <DatePicker hintText="Portrait Dialog"/>
-          <br/>
-          <DatePicker
-              hintText="Landscape Dialog"
-              mode="landscape"/>
-      </div>
+      <h1>So great</h1>
+      <h1>So great</h1>
+      <h1>So great</h1>
     </div>
 );

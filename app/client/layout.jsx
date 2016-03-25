@@ -57,43 +57,42 @@ class Layout extends React.Component {
     const {content} = this.props;
     return (
       <AppCanvas>
-          <LeftNav
-            docked={false}
-            width={200}
-            open={this.state.open}
-            onRequestChange={open => this.setState({open})}
-          >
-            <MenuItem onTouchTap={this.handleCloseLeftNav.bind(this)}>Menu Item</MenuItem>
-            <MenuItem onTouchTap={this.handleCloseLeftNav.bind(this)}>Menu Item 2</MenuItem>
-          </LeftNav>
-
-          <AppBar
-            title="izziLab"
-            iconElementLeft={
-              <IconButton onTouchTap={this.handleToggleLeftNav.bind(this)}>
-                  <MenuIcon />
-              </IconButton>
-            }
-            iconElementRight={
-              <IconMenu
-                iconButtonElement={
-                  <IconButton><MoreVertIcon /></IconButton>
-                }
-                targetOrigin={{horizontal: 'right', vertical: 'top'}}
-                anchorOrigin={{horizontal: 'right', vertical: 'top'}}
-              >
-                <MenuItem primaryText="Refresh" />
-                <MenuItem primaryText="Help" />
-                <MenuItem primaryText="Sign out" />
-              </IconMenu>
-            }
-          />
-          <div>{content}</div>
+        <AppBar
+          title="izziLab"
+          iconElementLeft={
+            <IconButton onTouchTap={this.handleToggleLeftNav.bind(this)}>
+                <MenuIcon />
+            </IconButton>
+          }
+          iconElementRight={
+            <IconMenu
+              iconButtonElement={
+                <IconButton><MoreVertIcon /></IconButton>
+              }
+              targetOrigin={{horizontal: 'right', vertical: 'top'}}
+              anchorOrigin={{horizontal: 'right', vertical: 'top'}}
+            >
+              <MenuItem primaryText="Refresh" />
+              <MenuItem primaryText="Help" />
+              <MenuItem primaryText="Sign out" />
+            </IconMenu>
+          }
+        />
+        <LeftNav
+          docked={false}
+          width={200}
+          open={this.state.open}
+          onRequestChange={open => this.setState({open})}
+        >
+          <MenuItem onTouchTap={this.handleCloseLeftNav.bind(this)}>Menu Item</MenuItem>
+          <MenuItem onTouchTap={this.handleCloseLeftNav.bind(this)}>Menu Item 2</MenuItem>
+        </LeftNav>
 
         <FloatingActionButton style={{position: 'fixed', right: 30, bottom: 30}}>
           <ContentAdd />
         </FloatingActionButton>
 
+        <div className="content">{content}</div>
       </AppCanvas>
     )
   }
