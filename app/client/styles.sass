@@ -1,0 +1,21 @@
+body
+  margin: 0
+  background: #eee
+
+.wrap
+  box-sizing: border-box
+  max-width: 1200px
+  margin: 0 auto
+
+.content
+  padding-top: 50px
+
+.layout-wrapper
+  background-color: white
+  transition: transform 600ms cubic-bezier(0.175, 0.885, 0.335, 1.05)
+  box-shadow: 0px 0px 10px #A29696
+  min-height: 100%
+  height: auto !important
+  height: 100%
+  &.left-nav-open
+    transform: scale(0.8) translate(0px, 130px)
