@@ -1,6 +1,6 @@
-Organisations = new Mongo.Collection('organisations');
+Orgs = new Mongo.Collection('orgs');
 
-Organisations.attachSchema(new SimpleSchema({
+Orgs.attachSchema(new SimpleSchema({
   label: {
     type: String
   },
@@ -11,5 +11,13 @@ Organisations.attachSchema(new SimpleSchema({
   admins: {
     type: [String],
     regEx: SimpleSchema.RegEx.Id
+  },
+  members: {
+    type: [String],
+    regEx: SimpleSchema.RegEx.Id
+  },
+  visibility: {
+    type: String,
+    allowedValues: ['public', 'link']
   }
 }))

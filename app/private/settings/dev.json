@@ -1,0 +1,10 @@
+{
+  "public": {},
+  "serviceConfigurations": {    
+    "google": {
+      "clientId": "90474512380-n3umf27aj02uor5k1658vm95tnuh8afk.apps.googleusercontent.com",
+      "secret": "jv5q96O3bTQLL80Tfj4zQlD-",
+      "loginStyle": "popup"
+    }
+  }
+}

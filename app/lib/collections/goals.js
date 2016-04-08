@@ -4,14 +4,17 @@ Goals.attachSchema(new SimpleSchema({
   label: {
     type: String
   },
+  details: {
+    type: String
+  },
   metric: {
     type: String,
     optional: true,
     regEx: SimpleSchema.RegEx.Id
   },
-  condition: {
-    type: Object
-  },
+  // condition: {
+  //   type: Object
+  // },
   'condition.comparison': {
     type: String,
     allowedValues: ["GTE", "LTE"]
